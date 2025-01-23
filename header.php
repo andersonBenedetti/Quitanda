@@ -26,9 +26,18 @@
     <div id="app">
 
         <header id="header">
+            <p class="text-top">🍎 Frete grátis acima de R$500,00 🍎</p>
             <div class="container">
-                <a href="/" class="logo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.webp" alt="Logo Quitanda">
-                </a>
+                <div class="content">
+                    <a href="/" class="logo">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.webp"
+                            alt="Logo Quitanda">
+                    </a>
+                    <?php echo do_shortcode('[fibosearch]'); ?>
+                    <a href="#" class="user">
+                        <?php include get_stylesheet_directory() . '/img/icons/user.svg'; ?>
+                    </a>
+                    <?php echo do_shortcode('[xoo_wsc_cart]'); ?>
+                </div>
             </div>
         </header>
