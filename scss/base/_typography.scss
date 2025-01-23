@@ -1,0 +1,8 @@
+$font-primary: "Fustat", serif;
+
+@mixin text {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 22.72px;
+  letter-spacing: 0.5px;
+}

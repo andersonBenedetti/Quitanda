@@ -1,0 +1,23 @@
+/*
+Theme Name: SupelPackTheme
+Theme URI: https://blumewebstudio.com.br
+Author: Blume Web Studio
+Author URI: https://blumewebstudio.com.br
+Description: Tema criado para a SupelPack.
+Version: 1.0
+*/
+
+@import "themes/colors";
+
+@import "base/typography";
+@import "base/geral";
+
+@import "components/header";
+@import "components/footer";
+@import "components/buttons";
+@import "components/product-list";
+
+@import "pages/page-home";
+@import "pages/archive-product";
+@import "pages/single-product";
+@import "pages/cart";

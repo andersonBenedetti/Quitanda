@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body,
+html {
+  font-family: $font-primary;
+  @include text;
+  color: $black;
+  background-color: $white;
+  scroll-behavior: smooth;
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.woocommerce-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top-color: transparent !important;
+  max-width: 1400px;
+  margin: 0 auto 20px auto !important;
+  padding: 20px !important;
+  background-color: $black !important;
+  border-radius: 10px;
+  @include text;
+  color: $black !important;
+
+  &::before,
+  &::after {
+    display: none !important;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  a {
+    width: max-content;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background-color: $black;
+    border-radius: 30px;
+    color: $white;
+    @include text;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
