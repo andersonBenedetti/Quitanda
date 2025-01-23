@@ -6,3 +6,21 @@ $font-primary: "Fustat", serif;
   line-height: 22.72px;
   letter-spacing: 0.5px;
 }
+
+@mixin text-top {
+  font-size: 0.813em;
+  font-weight: 800;
+  line-height: 18.46px;
+}
+
+@mixin input-search {
+  font-size: 0.813em;
+  font-weight: 500;
+  line-height: 18.46px;
+}
+
+@mixin total-text {
+  font-size: 0.75em;
+  font-weight: 800;
+  line-height: 17.04px;
+}
