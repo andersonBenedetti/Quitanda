@@ -30,3 +30,45 @@ $font-primary: "Fustat", serif;
   font-weight: 600;
   line-height: 19.88px;
 }
+
+@mixin link-footer {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+@mixin link-number {
+  font-size: 1.125em;
+  font-weight: 800;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+@mixin title-footer {
+  font-size: 1.313em;
+  font-weight: 800;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+@mixin link-list {
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+@mixin title-certificates {
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
+
+@mixin text-bottom {
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+}
