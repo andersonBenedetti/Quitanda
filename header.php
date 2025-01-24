@@ -25,19 +25,66 @@
 <body>
     <div id="app">
 
+        <?php
+        $menu_items = [
+            ['label' => 'Todos os produtos', 'url' => '/loja'],
+            ['label' => 'Mercearia', 'url' => '/categoria-produto/mercearia'],
+            ['label' => 'Hortifruti', 'url' => '/categoria-produto/hortifruti'],
+            ['label' => 'Padaria', 'url' => '/categoria-produto/padaria'],
+            ['label' => 'Higiene pessoal', 'url' => '/categoria-produto/higiene-pessoal'],
+            ['label' => 'Limpeza', 'url' => '/categoria-produto/limpeza'],
+            ['label' => 'Laticínios', 'url' => '/categoria-produto/laticinios'],
+            ['label' => 'Açougue', 'url' => '/categoria-produto/acougue'],
+            ['label' => 'Bebidas', 'url' => '/categoria-produto/bebidas'],
+            ['label' => 'Cosméticos', 'url' => '/categoria-produto/cosmeticos'],
+            ['label' => 'Aromaterapia', 'url' => '/categoria-produto/aromaterapia'],
+            ['label' => 'Bazar', 'url' => '/categoria-produto/bazar'],
+            ['label' => 'Infantil', 'url' => '/categoria-produto/infantil']
+        ];
+        ?>
+
         <header id="header">
             <p class="text-top">🍎 Frete grátis acima de R$500,00 🍎</p>
             <div class="container">
                 <div class="content">
                     <a href="/" class="logo">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.webp"
-                            alt="Logo Quitanda">
+                            alt="Quitanda - Voltar para página inicial" loading="lazy">
                     </a>
-                    <?php echo do_shortcode('[fibosearch]'); ?>
-                    <a href="#" class="user">
-                        <?php include get_stylesheet_directory() . '/img/icons/user.svg'; ?>
-                    </a>
-                    <?php echo do_shortcode('[xoo_wsc_cart]'); ?>
+                    <div class="search-desk">
+                        <?php echo do_shortcode('[fibosearch]'); ?>
+                    </div>
+                    <div class="links">
+                        <a href="#" class="user" aria-label="Área do Usuário">
+                            <?php include get_stylesheet_directory() . '/img/icons/user.svg'; ?>
+                        </a>
+                        <?php echo do_shortcode('[xoo_wsc_cart]'); ?>
+                        <div class="menu-header" :class="{ active: activeMenu }">
+                            <button class="btn-menu" @click="activeMenu = !activeMenu" aria-label="Abrir menu"
+                                aria-expanded="false">
+                                <span></span>
+                            </button>
+                            <ul class="menu-list" id="menu">
+                                <?php
+                                foreach ($menu_items as $item) {
+                                    echo '<li><a href="' . esc_url($item['url']) . '" aria-label="' . esc_html($item['label']) . '">' . esc_html($item['label']) . '</a></li>';
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="search-mobile">
+                    <?php echo do_shortcode('[fibosearch]'); ?>
+                </div>
+
+                <ul class="menu-desk">
+                    <?php
+                    foreach ($menu_items as $item) {
+                        echo '<li><a href="' . esc_url($item['url']) . '" aria-label="' . esc_html($item['label']) . '">' . esc_html($item['label']) . '</a></li>';
+                    }
+                    ?>
+                </ul>
             </div>
         </header>
