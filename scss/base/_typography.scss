@@ -24,3 +24,9 @@ $font-primary: "Fustat", serif;
   font-weight: 800;
   line-height: 17.04px;
 }
+
+@mixin link-menu {
+  font-size: 0.875em;
+  font-weight: 600;
+  line-height: 19.88px;
+}
