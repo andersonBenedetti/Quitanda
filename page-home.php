@@ -4,6 +4,16 @@
 
 <?php get_header(); ?>
 
+<?php
+$infos_shop = [
+  ['icon' => '🚚', 'title' => 'Entrega para todo Brasil', 'description' => 'Exceto produtos perecíveis'],
+  ['icon' => '🛒', 'title' => 'Pedido mínimo R$50', 'description' => 'Pedidos menores, consultar'],
+  ['icon' => '🍓', 'title' => 'Linha 100% orgânica', 'description' => 'Em toda categoria Hortifruti'],
+  ['icon' => '🚛', 'title' => 'Frete grátis p/ Sul', 'description' => 'em compras acima de R$150'],
+  ['icon' => '🍃', 'title' => 'Por um mundo mais sustentável ', 'description' => ''],
+];
+?>
+
 <main id="pg-home">
 
   <section class="carousel-home">
@@ -30,6 +40,24 @@
     <?php else: ?>
       <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
     <?php endif; ?>
+  </section>
+
+  <section class="infos-shop">
+    <div class="container">
+      <div class="infos-list">
+        <?php
+        foreach ($infos_shop as $info) {
+          echo '<div class="info-item">';
+          echo '<span class="icon">' . esc_html($info['icon']) . '</span>';
+          echo '<div class="text">';
+          echo '<p class="title">' . esc_html($info['title']) . '</p>';
+          echo '<p class="description">' . esc_html($info['description']) . '</p>';
+          echo '</div>';
+          echo '</div>';
+        }
+        ?>
+      </div>
+    </div>
   </section>
 
 </main>
