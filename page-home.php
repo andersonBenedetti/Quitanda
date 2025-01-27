@@ -85,6 +85,20 @@ $data['hortifruti'] = format_products($products_hortifruti, 'hortifruti');
     </div>
   </section>
 
+  <section class="banner-shop">
+    <?php
+    $link_do_banner = get_field('link_do_banner');
+    $img_banner = get_field('img_banner');
+
+    if ($link_do_banner && $img_banner): ?>
+      <a href="<?= esc_url($link_do_banner); ?>">
+        <img src="<?= esc_url($img_banner); ?>" alt="Banner Home">
+      </a>
+    <?php else: ?>
+      <p><?php _e('Nenhum banner configurado.', 'textdomain'); ?></p>
+    <?php endif; ?>
+  </section>
+
 </main>
 
 <?php get_footer(); ?>
