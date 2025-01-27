@@ -1,70 +1,89 @@
 .products-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
 
   .product-item {
-    box-sizing: border-box;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-
     a {
       display: block;
       width: 100%;
       height: 100%;
-      padding: 5px;
+      padding: 10px;
+      border: 1px solid $border-product;
+      border-radius: 10px;
 
       .product-info {
-        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+        height: 100%;
 
         img {
           width: 100%;
-          height: auto;
+          height: 240px;
           display: block;
           object-fit: cover;
-          border-radius: 5px;
-          transition: transform 0.3s ease;
           overflow: hidden;
+          transition: transform 0.3s ease;
         }
 
         > h3 {
-          font-size: 1.125em;
-          font-weight: 800;
-          line-height: 22.59px;
+          @include title-product;
           color: $black;
-          margin: 10px 0;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          height: 50px;
         }
 
-        span {
-          font-size: 1em;
-          font-weight: 500;
-          line-height: 20.08px;
-          text-decoration-line: underline;
-          text-decoration-style: solid;
-          text-decoration-skip-ink: none;
+        .product-price {
+          @include price-product;
           color: $black;
-        }
 
-        .installment {
-          display: block;
-          font-size: 0.875em;
-          font-weight: 400;
-          line-height: 20.56px;
-          color: $black;
-          margin-top: 10px;
+          span,
+          ins {
+            text-decoration: none;
+          }
+
+          > del {
+            bdi {
+              display: block;
+              @include price-promotional;
+              color: $text-promotional;
+
+              span {
+                color: $text-promotional;
+              }
+            }
+          }
         }
       }
     }
 
-    &:hover img {
-      transform: scale(1.025);
+    &:hover {
+      img {
+        transform: scale(1.025);
+      }
+
+      .btn-product {
+        background-color: $green;
+        color: $white;
+      }
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .products-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .products-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -12,6 +12,16 @@ $infos_shop = [
   ['icon' => '🚛', 'title' => 'Frete grátis p/ Sul', 'description' => 'em compras acima de R$150'],
   ['icon' => '🍃', 'title' => 'Por um mundo mais sustentável ', 'description' => ''],
 ];
+
+$products_hortifruti = wc_get_products([
+  'limit' => 5,
+  'orderby' => 'date',
+  'order' => 'DESC',
+  'category' => ['hortifruti'],
+]);
+
+$data = [];
+$data['hortifruti'] = format_products($products_hortifruti, 'hortifruti');
 ?>
 
 <main id="pg-home">
@@ -57,6 +67,21 @@ $infos_shop = [
         }
         ?>
       </div>
+    </div>
+  </section>
+
+  <section class="products-shop">
+    <div class="container">
+      <div class="top">
+        <h2>Orgânicos e fresquinhos </h2>
+        <a href="#" class="btn">Ver todos os ítens</a>
+      </div>
+
+      <?php if (!empty($data['hortifruti'])): ?>
+        <?php quitanda_product_list($data['hortifruti']); ?>
+      <?php else: ?>
+        <p><?php _e('Nenhum produto encontrado na categoria Hortifruti.'); ?></p>
+      <?php endif; ?>
     </div>
   </section>
 

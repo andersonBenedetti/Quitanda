@@ -36,6 +36,7 @@ function format_products($products)
 			'name' => $product->get_name(),
 			'img' => wp_get_attachment_image_src($product->get_image_id())[0],
 			'link' => $product->get_permalink(),
+			'price' => $product->get_price_html(), // Preço formatado pelo WooCommerce
 		];
 	}
 	return $products_final;
@@ -46,11 +47,12 @@ function quitanda_product_list($products)
 	echo '<ul class="products-list">';
 	foreach ($products as $product) { ?>
 		<li class="product-item">
-			<a href="<?= $product['link']; ?>">
+			<a href="<?= esc_url($product['link']); ?>">
 				<div class="product-info">
-					<img src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>" />
-					<h3><?= $product['name']; ?></h3>
-					<span>Mais detalhes</span>
+					<img src="<?= esc_url($product['img']); ?>" alt="<?= esc_attr($product['name']); ?>" />
+					<h3><?= esc_html($product['name']); ?></h3>
+					<p class="product-price"><?= $product['price']; ?></p>
+					<span class="btn btn-product">Ver mais detalhes</span>
 				</div>
 			</a>
 		</li>
