@@ -613,7 +613,8 @@ ul {
 }
 #pg-home .carousel-home .slick-arrow {
   position: absolute;
-  bottom: -15px;
+  bottom: 50%;
+  transform: translateX(-50%);
   z-index: 1;
   padding: 5px;
   border: 0;
@@ -621,32 +622,25 @@ ul {
   font-size: 0;
   outline: none;
   overflow: hidden;
-  background-color: #ffffff;
-  box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.4);
+  background: transparent;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 #pg-home .carousel-home .slick-arrow.slick-prev {
-  left: 50%;
-  margin-left: -35px;
-}
-#pg-home .carousel-home .slick-arrow.slick-prev::before {
-  transform: rotate(180deg);
+  left: 5%;
 }
 #pg-home .carousel-home .slick-arrow.slick-next {
-  right: 50%;
-  margin-right: -35px;
+  right: 2%;
+}
+#pg-home .carousel-home .slick-arrow.slick-next::before {
+  transform: rotate(180deg);
 }
 #pg-home .carousel-home .slick-arrow::before {
   background-image: url("./img/icons/arrow-carrossel.svg");
-  background-size: 25px 25px;
+  background-size: 32px 32px;
   display: inline-block;
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   content: "";
-}
-#pg-home .carousel-home .slick-arrow:hover {
-  background-color: #000000;
 }
 
 @media (max-width: 768px) {

@@ -10,7 +10,8 @@
 
     .slick-arrow {
       position: absolute;
-      bottom: -15px;
+      bottom: 50%;
+      transform: translateX(-50%);
       z-index: 1;
       padding: 5px;
       border: 0;
@@ -18,36 +19,28 @@
       font-size: 0;
       outline: none;
       overflow: hidden;
-      background-color: $white;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.4);
+      background: transparent;
       cursor: pointer;
-      transition: background-color 0.3s ease;
 
       &.slick-prev {
-        left: 50%;
-        margin-left: -35px;
+        left: 5%;
+      }
+
+      &.slick-next {
+        right: 2%;
 
         &::before {
           transform: rotate(180deg);
         }
       }
 
-      &.slick-next {
-        right: 50%;
-        margin-right: -35px;
-      }
-
       &::before {
         background-image: url("./img/icons/arrow-carrossel.svg");
-        background-size: 25px 25px;
+        background-size: 32px 32px;
         display: inline-block;
-        width: 25px;
-        height: 25px;
+        width: 32px;
+        height: 32px;
         content: "";
-      }
-
-      &:hover {
-        background-color: $black;
       }
     }
   }
