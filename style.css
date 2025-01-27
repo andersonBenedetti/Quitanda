@@ -531,6 +531,7 @@ ul {
   padding: 10px;
   border: 1px solid #e8e8e8;
   border-radius: 10px;
+  background-color: #ffffff;
 }
 .products-list .product-item a .product-info {
   display: flex;
@@ -695,6 +696,9 @@ ul {
 }
 #pg-home .products-shop {
   padding: 50px 0;
+}
+#pg-home .products-shop.secondary {
+  background-color: #f7f6f4;
 }
 #pg-home .products-shop .top {
   display: flex;

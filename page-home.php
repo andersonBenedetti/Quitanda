@@ -20,8 +20,16 @@ $products_hortifruti = wc_get_products([
   'category' => ['hortifruti'],
 ]);
 
+$products_mercearia = wc_get_products([
+  'limit' => 5,
+  'orderby' => 'date',
+  'order' => 'DESC',
+  'category' => ['mercearia'],
+]);
+
 $data = [];
-$data['hortifruti'] = format_products($products_hortifruti, 'hortifruti');
+$data['hortifruti'] = format_products($products_hortifruti);
+$data['mercearia'] = format_products($products_mercearia);
 ?>
 
 <main id="pg-home">
@@ -73,7 +81,7 @@ $data['hortifruti'] = format_products($products_hortifruti, 'hortifruti');
   <section class="products-shop">
     <div class="container">
       <div class="top">
-        <h2>Orgânicos e fresquinhos </h2>
+        <h2>Orgânicos e fresquinhos</h2>
         <a href="#" class="btn">Ver todos os ítens</a>
       </div>
 
@@ -97,6 +105,21 @@ $data['hortifruti'] = format_products($products_hortifruti, 'hortifruti');
     <?php else: ?>
       <p><?php _e('Nenhum banner configurado.', 'textdomain'); ?></p>
     <?php endif; ?>
+  </section>
+
+  <section class="products-shop secondary">
+    <div class="container">
+      <div class="top">
+        <h2>Mercearia | Tudo para sua despensa</h2>
+        <a href="#" class="btn">Ver todos os ítens</a>
+      </div>
+
+      <?php if (!empty($data['mercearia'])): ?>
+        <?php quitanda_product_list($data['mercearia']); ?>
+      <?php else: ?>
+        <p><?php _e('Nenhum produto encontrado na categoria Mercearia.'); ?></p>
+      <?php endif; ?>
+    </div>
   </section>
 
 </main>

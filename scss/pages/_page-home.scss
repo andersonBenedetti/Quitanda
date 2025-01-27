@@ -79,6 +79,10 @@
   .products-shop {
     padding: 50px 0;
 
+    &.secondary {
+      background-color: $background-input;
+    }
+
     .top {
       display: flex;
       justify-content: space-between;
