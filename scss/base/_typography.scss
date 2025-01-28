@@ -120,3 +120,10 @@ $font-primary: "Fustat", serif;
   font-weight: 800;
   line-height: 21.3px;
 }
+
+@mixin title-feedback {
+  font-size: 1.313em;
+  font-weight: 700;
+  line-height: 29.82px;
+  letter-spacing: 0.5px;
+}

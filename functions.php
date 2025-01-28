@@ -36,7 +36,7 @@ function format_products($products)
 			'name' => $product->get_name(),
 			'img' => wp_get_attachment_image_src($product->get_image_id())[0],
 			'link' => $product->get_permalink(),
-			'price' => $product->get_price_html(), // Preço formatado pelo WooCommerce
+			'price' => $product->get_price_html(),
 		];
 	}
 	return $products_final;
@@ -46,17 +46,17 @@ function quitanda_product_list($products)
 {
 	echo '<ul class="products-list">';
 	foreach ($products as $product) { ?>
-		<li class="product-item">
-			<a href="<?= esc_url($product['link']); ?>">
-				<div class="product-info">
-					<img src="<?= esc_url($product['img']); ?>" alt="<?= esc_attr($product['name']); ?>" />
-					<h3><?= esc_html($product['name']); ?></h3>
-					<p class="product-price"><?= $product['price']; ?></p>
-					<span class="btn btn-product">Ver mais detalhes</span>
-				</div>
-			</a>
-		</li>
-	<?php }
+<li class="product-item">
+    <a href="<?= esc_url($product['link']); ?>">
+        <div class="product-info">
+            <img src="<?= esc_url($product['img']); ?>" alt="<?= esc_attr($product['name']); ?>" />
+            <h3><?= esc_html($product['name']); ?></h3>
+            <p class="product-price"><?= $product['price']; ?></p>
+            <span class="btn btn-product">Ver mais detalhes</span>
+        </div>
+    </a>
+</li>
+<?php }
 	echo '</ul>';
 }
 
@@ -98,6 +98,7 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 
 add_action('init', function () {
 	custom_post_type('carrossel', 'Carrossel', 'Carrossel');
+	custom_post_type('feedbacks', 'Feedbacks', 'Feedbacks');
 });
 
 function enqueue_slick_scripts()

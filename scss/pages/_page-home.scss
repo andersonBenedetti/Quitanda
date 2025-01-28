@@ -214,6 +214,52 @@
       }
     }
   }
+
+  .feedback-section {
+    padding: 50px 0;
+
+    h2 {
+      @include title-section;
+      margin-bottom: 20px;
+    }
+
+    .feedback-list {
+      .slick-slide {
+        margin: 0 10px;
+      }
+
+      .slick-list {
+        margin: 0 -10px;
+      }
+
+      .feedback-item {
+        background-color: $background-input;
+        border-radius: 10px;
+        padding: 20px;
+
+        .feedback-header {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 20px;
+
+          .feedback-img {
+            width: 66px;
+            height: 66px;
+            object-fit: cover;
+            overflow: hidden;
+            border-radius: 50%;
+
+            .feedback-info {
+              .feedback-title {
+                @include title-feedback;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1024px) {
