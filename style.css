@@ -815,6 +815,45 @@ ul {
   background-color: #effaf7;
   color: #07b68a;
 }
+#pg-home .feedback-section {
+  padding: 50px 0;
+}
+#pg-home .feedback-section h2 {
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 45.44px;
+  margin-bottom: 20px;
+}
+#pg-home .feedback-section .feedback-list .slick-slide {
+  margin: 0 10px;
+}
+#pg-home .feedback-section .feedback-list .slick-list {
+  margin: 0 -10px;
+}
+#pg-home .feedback-section .feedback-list .feedback-item {
+  background-color: #f7f6f4;
+  border-radius: 10px;
+  padding: 20px;
+}
+#pg-home .feedback-section .feedback-list .feedback-item .feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#pg-home .feedback-section .feedback-list .feedback-item .feedback-header .feedback-img {
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 50%;
+}
+#pg-home .feedback-section .feedback-list .feedback-item .feedback-header .feedback-img .feedback-info .feedback-title {
+  font-size: 1.313em;
+  font-weight: 700;
+  line-height: 29.82px;
+  letter-spacing: 0.5px;
+}
 
 @media (max-width: 1024px) {
   #pg-home .categories-list .list {
