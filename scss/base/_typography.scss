@@ -127,3 +127,21 @@ $font-primary: "Fustat", serif;
   line-height: 29.82px;
   letter-spacing: 0.5px;
 }
+
+@mixin title-cat {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 45.44px;
+}
+
+@mixin description-cat {
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 22.72px;
+}
+
+@mixin text-select {
+  font-size: 0.875em;
+  font-weight: 700;
+  line-height: 24px;
+}

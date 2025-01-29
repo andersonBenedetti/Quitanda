@@ -24,7 +24,7 @@ register_nav_menus([
 
 function quitanda_loop_shop_per_page()
 {
-	return 12;
+	return 15;
 }
 add_filter('loop_shop_per_page', 'quitanda_loop_shop_per_page');
 
@@ -46,17 +46,17 @@ function quitanda_product_list($products)
 {
 	echo '<ul class="products-list">';
 	foreach ($products as $product) { ?>
-<li class="product-item">
-    <a href="<?= esc_url($product['link']); ?>">
-        <div class="product-info">
-            <img src="<?= esc_url($product['img']); ?>" alt="<?= esc_attr($product['name']); ?>" />
-            <h3><?= esc_html($product['name']); ?></h3>
-            <p class="product-price"><?= $product['price']; ?></p>
-            <span class="btn btn-product">Ver mais detalhes</span>
-        </div>
-    </a>
-</li>
-<?php }
+		<li class="product-item">
+			<a href="<?= esc_url($product['link']); ?>">
+				<div class="product-info">
+					<img src="<?= esc_url($product['img']); ?>" alt="<?= esc_attr($product['name']); ?>" />
+					<h3><?= esc_html($product['name']); ?></h3>
+					<p class="product-price"><?= $product['price']; ?></p>
+					<span class="btn btn-product">Ver mais detalhes</span>
+				</div>
+			</a>
+		</li>
+	<?php }
 	echo '</ul>';
 }
 
