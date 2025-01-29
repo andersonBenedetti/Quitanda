@@ -55,71 +55,45 @@ $footer_menu_items = [
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
-    const button = document.querySelector('.single_add_to_cart_button');
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".quantity").forEach(function (quantityWrapper) {
+            const input = quantityWrapper.querySelector("input.qty");
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            tabs.forEach(t => t.classList.remove('active'));
+            if (!input) return;
 
-            contents.forEach(content => content.classList.remove('active'));
+            const minusButton = document.createElement("button");
+            minusButton.textContent = "-";
+            minusButton.classList.add("qty-minus");
 
-            this.classList.add('active');
+            const plusButton = document.createElement("button");
+            plusButton.textContent = "+";
+            plusButton.classList.add("qty-plus");
 
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
+            quantityWrapper.prepend(minusButton);
+            quantityWrapper.append(plusButton);
 
-    if (button) {
-        button.addEventListener('click', function() {
-            if (!button.classList.contains('loading')) {
-                button.classList.add('loading');
-
-                const spinner = document.createElement('div');
-                spinner.classList.add('loading-spinner');
-
-                button.appendChild(spinner);
-
-                setTimeout(function() {
-                    button.removeChild(spinner);
-                    button.classList.remove('loading');
-                }, 3000);
-            }
-        });
-    }
-
-    // Configuração do submenu para dispositivos móveis
-    const menuItems = document.querySelectorAll('.menu-item-has-children > a');
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            const parent = item.parentElement;
-
-            // Fecha outros submenus abertos ao abrir um novo
-            menuItems.forEach(i => {
-                const otherParent = i.parentElement;
-                if (otherParent !== parent) {
-                    otherParent.classList.remove('open');
-                }
+            minusButton.addEventListener("click", function (e) {
+                e.preventDefault();
+                let value = parseInt(input.value) || 1;
+                if (value > 1) input.value = value - 1;
             });
 
-            // Alterna a visibilidade do submenu clicado
-            parent.classList.toggle('open');
+            plusButton.addEventListener("click", function (e) {
+                e.preventDefault();
+                let value = parseInt(input.value) || 1;
+                input.value = value + 1;
+            });
         });
     });
-});
 
-const app = new Vue({
-    el: '#app',
-    data: {
-        activeMenu: false,
-    },
-    created() {},
-    methods: {}
-});
+    const app = new Vue({
+        el: '#app',
+        data: {
+            activeMenu: false,
+        },
+        created() { },
+        methods: {}
+    });
 </script>
 
 </div>

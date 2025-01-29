@@ -33,53 +33,20 @@ function format_single_product($id)
                     <?php echo do_shortcode('[wcgs_gallery_slider]'); ?>
                 </div>
                 <div class="product-detail">
-                    <h1><?= $produto['name']; ?></h1>
-                    <p class="short-description"><?= wp_kses_post($produto['short_description']); ?></p>
+                    <h1 class="title"><?= $produto['name']; ?></h1>
+
+                    <p class="product-price"><?= wc_get_product($produto['id'])->get_price_html(); ?></p>
+
                     <?php woocommerce_template_single_add_to_cart() ?>
-                    <a class="btn-table" href="#tabela-de-codigo-e-tamanhos">TABELA DE CÓDIGO E TAMANHOS</a>
-                    <div>
-                        <div class="info-store">
-                            <div class="icon">
-                                <?php include get_stylesheet_directory() . '/img/icons/frete.svg'; ?>
-                            </div>
-                            <p>Frete grátis em pedidos acima de R$100</p>
-                        </div>
-                        <div class="info-store">
-                            <div class="icon">
-                                <?php include get_stylesheet_directory() . '/img/icons/cartao.svg'; ?>
-                            </div>
-                            <p>Pagamento facilitado</p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            <section class="product-tabs container" id="tabela-de-codigo-e-tamanhos">
-                <ul class="tabs-nav">
-                    <?php if (!empty($produto['description'])): ?>
-                        <li class="tab-link active" data-tab="description">TABELA DE CÓDIGO E TAMANHOS</li>
-                    <?php endif; ?>
-
-                    <?php
-                    $tabela_de_medidas = get_field('tabela_de_medidas', $produto['id']);
-                    if (!empty($tabela_de_medidas)): ?>
-                        <li class="tab-link <?= empty($produto['description']) ? 'active' : ''; ?>" data-tab="tabela-de-medidas">
-                            Tabela de medidas</li>
-                    <?php endif; ?>
-                </ul>
-
-                <div class="tabs-content">
-                    <?php if (!empty($produto['description'])): ?>
-                        <div id="description" class="tab-content active">
-                            <?= wp_kses_post($produto['description']); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (!empty($tabela_de_medidas)): ?>
-                        <div id="tabela-de-medidas" class="tab-content <?= empty($produto['description']) ? 'active' : ''; ?>">
-                            <?= wp_kses_post($tabela_de_medidas); ?>
-                        </div>
-                    <?php endif; ?>
+            <section class="description-product">
+                <div class="container">
+                    <div class="content">
+                        <h2 class="title">Descrição</h2>
+                        <?php echo wpautop(wp_kses_post($produto['description'])); ?>
+                    </div>
                 </div>
             </section>
 
@@ -101,9 +68,10 @@ function format_single_product($id)
         ?>
 
         <section class="related-list">
-            <h2 class="title">Produtos relacionados</h2>
             <div class="container">
-                <?php supelpack_product_list($related); ?>
+                <h2 class="title">Produtos relacionados</h2>
+
+                <?php quitanda_product_list($related); ?>
             </div>
         </section>
 

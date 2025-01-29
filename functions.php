@@ -109,26 +109,3 @@ function enqueue_slick_scripts()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_slick_scripts');
-
-add_action('wp_loaded', function () {
-	if (isset($_POST['update_quantity']) && isset($_POST['cart_item_key'])) {
-		$cart_item_key = sanitize_text_field($_POST['cart_item_key']);
-		$action = sanitize_text_field($_POST['update_quantity']);
-
-		$cart = WC()->cart->get_cart();
-		if (isset($cart[$cart_item_key])) {
-			$current_quantity = $cart[$cart_item_key]['quantity'];
-			if ($action === 'increase') {
-				WC()->cart->set_quantity($cart_item_key, $current_quantity + 1);
-			} elseif ($action === 'decrease') {
-				if ($current_quantity > 1) {
-					WC()->cart->set_quantity($cart_item_key, $current_quantity - 1);
-				} else {
-					WC()->cart->remove_cart_item($cart_item_key);
-				}
-			}
-		}
-		wp_safe_redirect(wc_get_cart_url());
-		exit;
-	}
-});
