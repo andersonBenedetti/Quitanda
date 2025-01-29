@@ -50,6 +50,8 @@
           }
 
           > del {
+            color: $text-promotional;
+
             bdi {
               display: block;
               @include price-promotional;
