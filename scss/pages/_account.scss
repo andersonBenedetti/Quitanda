@@ -1,13 +1,17 @@
 .woocommerce-MyAccount-navigation {
-  max-width: 400px;
-  width: 100%;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 50px;
 
   li {
-    background-color: $secondary-color;
-    border-bottom: 1px solid $white;
+    background-color: $background-input;
+    border-bottom: 2px solid $white;
+    transition: background-color 0.3s ease;
 
-    &.is-active {
-      background-color: $border-color;
+    &.is-active,
+    &:hover {
+      background-color: $background-top;
     }
 
     a {
@@ -23,7 +27,9 @@
 }
 
 .woocommerce-MyAccount-content {
-  width: 100%;
+  width: 65%;
+  display: inline-block;
+  vertical-align: top;
   line-height: 1.5;
 
   a {
@@ -59,7 +65,7 @@
 
   .woocommerce-EditAccountForm {
     input {
-      border: 1px solid $border-color !important;
+      border: 1px solid $black !important;
       border-radius: 4px;
       font-size: 1em;
       height: 50px;
@@ -67,5 +73,24 @@
       padding: 1em 0.5em;
       width: 100%;
     }
+  }
+}
+
+.woocommerce-MyAccount-navigation:after,
+.woocommerce-MyAccount-content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .woocommerce-MyAccount-navigation,
+  .woocommerce-MyAccount-content {
+    width: 100%;
+    display: block;
+  }
+
+  .woocommerce-MyAccount-navigation {
+    margin-bottom: 50px;
   }
 }
