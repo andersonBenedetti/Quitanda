@@ -1,24 +1,27 @@
 .wp-block-woocommerce-cart {
-  max-width: 1240px;
-  margin: 50px auto;
-  padding: 0 20px;
+  max-width: 1400px;
+  margin: 20px auto;
+
+  .wc-block-components-product-badge {
+    display: none !important;
+  }
 
   table.wc-block-cart-items {
     width: 100%;
     text-align: center;
     overflow: hidden;
     border-collapse: separate;
-    border: solid $white 1px !important;
+    border: solid $border-select 1px !important;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    background-color: $black !important;
+    background-color: $white !important;
 
     thead {
       tr {
         th:nth-child(2) {
-          border-left: 1px solid $white !important;
-          border-right: 1px solid $white !important;
+          border-left: 1px solid $border-select !important;
+          border-right: 1px solid $border-select !important;
         }
 
         th {
@@ -34,12 +37,12 @@
     td {
       padding: 10px !important;
       vertical-align: middle !important;
-      border-color: $white !important;
+      border-color: $border-select !important;
 
       &.wc-block-cart-item__product {
-        border-left: 1px solid $white;
-        border-right: 1px solid $white;
-        border-color: $white !important;
+        border-left: 1px solid $border-select;
+        border-right: 1px solid $border-select;
+        border-color: $border-select !important;
 
         > div {
           display: flex;
@@ -96,9 +99,10 @@
   }
 
   .wc-block-cart__sidebar.wp-block-woocommerce-cart-totals-block {
-    background-color: $black;
+    background-color: $white;
     padding: 0 !important;
     border-radius: 10px;
+    border: solid $border-select 1px !important;
 
     .wc-block-cart__totals-title {
       font-size: 0.875em;
@@ -109,7 +113,7 @@
 
     .wc-block-components-totals-wrapper,
     .wp-block-woocommerce-cart-order-summary-totals-block {
-      border-color: $white !important;
+      border-color: $border-select !important;
     }
 
     .wc-block-components-totals-coupon {
@@ -120,7 +124,7 @@
     }
 
     .wp-block-woocommerce-cart-order-summary-subtotal-block {
-      border-bottom: 1px solid $white;
+      border-bottom: 1px solid $border-select;
       padding: 16px 0 !important;
     }
 
@@ -139,8 +143,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   .wp-block-woocommerce-cart {
+    padding: 20px;
+
     .wc-block-cart-items__row {
       display: flex !important;
       flex-direction: column !important;
