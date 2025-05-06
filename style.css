@@ -1,9 +1,9 @@
 /*
-Theme Name: SupelPackTheme
+Theme Name: QuitandaTheme
 Theme URI: https://blumewebstudio.com.br
 Author: Blume Web Studio
 Author URI: https://blumewebstudio.com.br
-Description: Tema criado para a SupelPack.
+Description: Tema criado para o Mercado Quitanda.
 Version: 1.0
 */
 * {
@@ -26,6 +26,15 @@ html {
   color: #000000;
   background-color: #ffffff;
   scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 176px;
+}
+@media (max-width: 1024px) {
+  body {
+    padding-top: 148px;
+  }
 }
 
 main {
@@ -92,7 +101,27 @@ ul {
   }
 }
 #header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+#header.shrink .text-top {
+  display: none;
+}
+#header.shrink .content {
+  padding: 6px 0;
+}
+#header.shrink .content .logo {
+  max-width: 65px;
+}
+#header.shrink .content .links {
+  gap: 10px;
+}
+#header.shrink .menu-desk {
+  padding: 10px 0;
 }
 #header .text-top {
   font-size: 0.813em;
@@ -108,10 +137,12 @@ ul {
   align-items: end;
   gap: 20px;
   padding: 10px 0;
+  transition: padding 0.3s ease;
 }
 #header .content .logo {
   max-width: 97px;
   width: 100%;
+  transition: max-width 0.3s ease;
 }
 #header .content .search-desk {
   width: 100%;
@@ -631,20 +662,41 @@ ul {
   left: auto !important;
 }
 
-.quantity {
+.gramas-label {
+  margin-bottom: 10px;
+}
+
+.quantity,
+.custom-gramas {
   display: flex;
   align-items: center;
+  float: left;
+}
+@media (max-width: 758px) {
+  .quantity,
+  .custom-gramas {
+    float: none;
+  }
 }
 .quantity input.qty::-webkit-outer-spin-button,
-.quantity input.qty::-webkit-inner-spin-button {
+.quantity input.qty::-webkit-inner-spin-button,
+.custom-gramas input.qty::-webkit-outer-spin-button,
+.custom-gramas input.qty::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.quantity input.qty[type=number] {
+.quantity input.qty[type=number],
+.custom-gramas input.qty[type=number] {
   -moz-appearance: textfield;
 }
 .quantity .qty-minus,
-.quantity .qty-plus {
+.quantity .qty-plus,
+.quantity .gramas-minus,
+.quantity .gramas-plus,
+.custom-gramas .qty-minus,
+.custom-gramas .qty-plus,
+.custom-gramas .gramas-minus,
+.custom-gramas .gramas-plus {
   color: #333333;
   border: 1px solid #dddddd;
   width: 44px;
@@ -658,10 +710,17 @@ ul {
   transition: background-color 0.3s ease;
 }
 .quantity .qty-minus:hover,
-.quantity .qty-plus:hover {
+.quantity .qty-plus:hover,
+.quantity .gramas-minus:hover,
+.quantity .gramas-plus:hover,
+.custom-gramas .qty-minus:hover,
+.custom-gramas .qty-plus:hover,
+.custom-gramas .gramas-minus:hover,
+.custom-gramas .gramas-plus:hover {
   background-color: #dddddd;
 }
-.quantity input.qty {
+.quantity input.qty,
+.custom-gramas input.qty {
   width: 50px;
   height: 44px;
   text-align: center;
@@ -1031,7 +1090,7 @@ ul {
 
 @media (max-width: 768px) {
   #archive-product .intro {
-    padding: 50px 20px;
+    padding: 50px;
   }
   #archive-product .intro .category-icon {
     font-size: 40px;

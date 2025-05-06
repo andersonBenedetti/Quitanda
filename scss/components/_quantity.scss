@@ -1,6 +1,16 @@
-.quantity {
+.gramas-label {
+  margin-bottom: 10px;
+}
+
+.quantity,
+.custom-gramas {
   display: flex;
   align-items: center;
+  float: left;
+
+  @media (max-width: 758px) {
+    float: none;
+  }
 
   input.qty::-webkit-outer-spin-button,
   input.qty::-webkit-inner-spin-button {
@@ -13,7 +23,9 @@
   }
 
   .qty-minus,
-  .qty-plus {
+  .qty-plus,
+  .gramas-minus,
+  .gramas-plus {
     color: $text-gray;
     border: 1px solid $border-select;
     width: 44px;
@@ -28,7 +40,9 @@
   }
 
   .qty-minus:hover,
-  .qty-plus:hover {
+  .qty-plus:hover,
+  .gramas-minus:hover,
+  .gramas-plus:hover {
     background-color: $border-select;
   }
 
