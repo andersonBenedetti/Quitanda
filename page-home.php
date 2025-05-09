@@ -6,26 +6,26 @@
 
 <?php
 $infos_shop = [
-    ['icon' => '🚚', 'title' => 'Entrega para todo Brasil', 'description' => 'Exceto produtos perecíveis'],
-    ['icon' => '🛒', 'title' => 'Pedido mínimo R$50', 'description' => 'Pedidos menores, consultar'],
-    ['icon' => '🍓', 'title' => 'Linha 100% orgânica', 'description' => 'Em toda categoria Hortifruti'],
-    ['icon' => '🚛', 'title' => 'Frete grátis p/ Sul', 'description' => 'em compras acima de R$150'],
-    ['icon' => '🍃', 'title' => 'Por um mundo mais sustentável ', 'description' => ''],
+    ['icon' => 'frete.webp', 'title' => 'Entrega para todo Brasil', 'description' => 'Exceto produtos perecíveis'],
+    ['icon' => 'pedido.webp', 'title' => 'Pedido mínimo R$50', 'description' => 'Pedidos menores, consultar'],
+    ['icon' => 'organica.webp', 'title' => 'Linha 100% orgânica', 'description' => 'Em toda categoria Hortifruti'],
+    ['icon' => 'frete_sul.webp', 'title' => 'Frete grátis p/ Sul', 'description' => 'em compras acima de R$150'],
+    ['icon' => 'sustentavel.webp', 'title' => 'Por um mundo mais sustentável ', 'description' => ''],
 ];
 
 $cat_items = [
-    ['icon' => '🍎🥦', 'title' => 'Hortifruti', 'link' => '#'],
-    ['icon' => '🫘🧃', 'title' => 'Mercearia', 'link' => '#'],
-    ['icon' => '🥪🍪', 'title' => 'Padaria', 'link' => '#'],
-    ['icon' => '🧼🛁', 'title' => 'Higiene Pessoal', 'link' => '#'],
-    ['icon' => '🧻🧽', 'title' => 'Limpeza', 'link' => '#'],
-    ['icon' => '🥛🧀', 'title' => 'Laticínios', 'link' => '#'],
-    ['icon' => '🥩🍗', 'title' => 'Açougue', 'link' => '#'],
-    ['icon' => '🍷🥤', 'title' => 'Bebidas', 'link' => '#'],
-    ['icon' => '💄🧴', 'title' => 'Cosméticos', 'link' => '#'],
-    ['icon' => '👃💆🏻‍♀️', 'title' => 'Aromaterapia', 'link' => '#'],
-    ['icon' => '🍴✂️', 'title' => 'Bazar', 'link' => '#'],
-    ['icon' => '🧸🍼', 'title' => 'Infantil', 'link' => '#'],
+    ['icon' => 'hortifruti.webp', 'title' => 'Hortifruti', 'link' => '/hortifruti'],
+    ['icon' => 'mercearia.webp', 'title' => 'Mercearia', 'link' => '/mercearia'],
+    ['icon' => 'padaria.webp', 'title' => 'Padaria', 'link' => '/padaria'],
+    ['icon' => 'higiene_pessoal.webp', 'title' => 'Higiene Pessoal', 'link' => '/higiene-pessoal'],
+    ['icon' => 'limpeza.webp', 'title' => 'Limpeza', 'link' => '/limpeza'],
+    ['icon' => 'laticinios.webp', 'title' => 'Laticínios', 'link' => '/laticinios'],
+    ['icon' => 'acougue.webp', 'title' => 'Açougue', 'link' => '/acougue'],
+    ['icon' => 'bebidas.webp', 'title' => 'Bebidas', 'link' => '/bebidas'],
+    ['icon' => 'cosmeticos.webp', 'title' => 'Cosméticos', 'link' => '/cosmeticos'],
+    ['icon' => 'aromaterapia.webp', 'title' => 'Aromaterapia', 'link' => '/aromaterapia'],
+    ['icon' => 'bazar.webp', 'title' => 'Bazar', 'link' => '/bazar'],
+    ['icon' => 'infantil.webp', 'title' => 'Infantil', 'link' => '/infantil'],
 ];
 
 $products_hortifruti = wc_get_products([
@@ -60,18 +60,18 @@ $data['mercearia'] = format_products($products_mercearia);
         $the_query = new WP_Query($args); ?>
 
         <?php if ($the_query->have_posts()): ?>
-        <?php while ($the_query->have_posts()):
+            <?php while ($the_query->have_posts()):
                 $the_query->the_post(); ?>
 
-        <a href="<?php the_field('link_da_imagem'); ?>">
-            <img class="dkp" src="<?php the_field('imagem_-_desktop'); ?>" alt="<?php the_title(); ?>">
-            <img class="mbl" src="<?php the_field('imagem_-_mobile'); ?>" alt="<?php the_title(); ?>">
-        </a>
+                <a href="<?php the_field('link_da_imagem'); ?>">
+                    <img class="dkp" src="<?php the_field('imagem_-_desktop'); ?>" alt="<?php the_title(); ?>">
+                    <img class="mbl" src="<?php the_field('imagem_-_mobile'); ?>" alt="<?php the_title(); ?>">
+                </a>
 
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
         <?php else: ?>
-        <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+            <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
         <?php endif; ?>
     </section>
 
@@ -81,7 +81,7 @@ $data['mercearia'] = format_products($products_mercearia);
                 <?php
                 foreach ($infos_shop as $info) {
                     echo '<div class="info-item">';
-                    echo '<span class="icon">' . esc_html($info['icon']) . '</span>';
+                    echo '<div class="icon"><img src="' . get_template_directory_uri() . '/img/icons/' . esc_attr($info['icon']) . '" alt="' . esc_attr($info['title']) . '"></div>';
                     echo '<div class="text">';
                     echo '<p class="title">' . esc_html($info['title']) . '</p>';
                     echo '<p class="description">' . esc_html($info['description']) . '</p>';
@@ -101,9 +101,9 @@ $data['mercearia'] = format_products($products_mercearia);
             </div>
 
             <?php if (!empty($data['hortifruti'])): ?>
-            <?php quitanda_product_list($data['hortifruti']); ?>
+                <?php quitanda_product_list($data['hortifruti']); ?>
             <?php else: ?>
-            <p><?php _e('Nenhum produto encontrado na categoria Hortifruti.'); ?></p>
+                <p><?php _e('Nenhum produto encontrado na categoria Hortifruti.'); ?></p>
             <?php endif; ?>
         </div>
     </section>
@@ -114,11 +114,11 @@ $data['mercearia'] = format_products($products_mercearia);
         $img_banner = get_field('img_banner');
 
         if ($link_do_banner && $img_banner): ?>
-        <a href="<?= esc_url($link_do_banner); ?>">
-            <img src="<?= esc_url($img_banner); ?>" alt="Banner Home">
-        </a>
+            <a href="<?= esc_url($link_do_banner); ?>">
+                <img src="<?= esc_url($img_banner); ?>" alt="Banner Home">
+            </a>
         <?php else: ?>
-        <p><?php _e('Nenhum banner configurado.', 'textdomain'); ?></p>
+            <p><?php _e('Nenhum banner configurado.', 'textdomain'); ?></p>
         <?php endif; ?>
     </section>
 
@@ -130,9 +130,9 @@ $data['mercearia'] = format_products($products_mercearia);
             </div>
 
             <?php if (!empty($data['mercearia'])): ?>
-            <?php quitanda_product_list($data['mercearia']); ?>
+                <?php quitanda_product_list($data['mercearia']); ?>
             <?php else: ?>
-            <p><?php _e('Nenhum produto encontrado na categoria Mercearia.'); ?></p>
+                <p><?php _e('Nenhum produto encontrado na categoria Mercearia.'); ?></p>
             <?php endif; ?>
         </div>
     </section>
@@ -143,11 +143,15 @@ $data['mercearia'] = format_products($products_mercearia);
 
             <div class="list">
                 <?php foreach ($cat_items as $item): ?>
-                <a href="<?= esc_url($item['link']); ?>" class="item">
-                    <p class="icon"><?= esc_html($item['icon']); ?></p>
-                    <h3 class="title"><?= esc_html($item['title']); ?></h3>
-                    <span class="view-all">ver todos</span>
-                </a>
+                    <a href="/categoria-produto/<?= esc_attr($item['link']); ?>" class="item"
+                        aria-label="Ver produtos da categoria <?= esc_attr($item['title']); ?>">
+                        <div class="icon">
+                            <img src="<?= get_template_directory_uri(); ?>/img/icons/<?= esc_attr($item['icon']); ?>"
+                                alt="<?= esc_attr($item['title']); ?>">
+                        </div>
+                        <h3 class="title"><?= esc_html($item['title']); ?></h3>
+                        <span class="view-all">ver todos</span>
+                    </a>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -168,35 +172,35 @@ $data['mercearia'] = format_products($products_mercearia);
             $the_query = new WP_Query($args); ?>
 
             <?php if ($the_query->have_posts()): ?>
-            <div class="feedback-list carousel-feedback">
-                <?php while ($the_query->have_posts()):
+                <div class="feedback-list carousel-feedback">
+                    <?php while ($the_query->have_posts()):
                         $the_query->the_post(); ?>
-                <div class="feedback-item">
-                    <div class="feedback-header">
-                        <?php if (has_post_thumbnail()): ?>
-                        <img class="feedback-img"
-                            src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>"
-                            alt="<?php the_title(); ?>">
-                        <?php endif; ?>
-                        <div class="feedback-info">
-                            <h3 class="feedback-title"><?php the_title(); ?></h3>
-                            <span class="feedback-stars">
-                                <?php
+                        <div class="feedback-item">
+                            <div class="feedback-header">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <img class="feedback-img"
+                                        src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>"
+                                        alt="<?php the_title(); ?>">
+                                <?php endif; ?>
+                                <div class="feedback-info">
+                                    <h3 class="feedback-title"><?php the_title(); ?></h3>
+                                    <span class="feedback-stars">
+                                        <?php
                                         $stars = get_field('quantidade_de_estrelas');
 
                                         for ($i = 0; $i < $stars; $i++) {
                                             echo '⭐';
                                         }
                                         ?>
-                            </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="feedback-comment"><?php the_field('comentario'); ?></p>
                         </div>
-                    </div>
-                    <p class="feedback-comment"><?php the_field('comentario'); ?></p>
+                    <?php endwhile; ?>
                 </div>
-                <?php endwhile; ?>
-            </div>
             <?php else: ?>
-            <p class="no-feedback"><?php _e('Desculpe, nenhum feedback encontrado.', 'textdomain'); ?></p>
+                <p class="no-feedback"><?php _e('Desculpe, nenhum feedback encontrado.', 'textdomain'); ?></p>
             <?php endif; ?>
 
             <?php wp_reset_postdata(); ?>

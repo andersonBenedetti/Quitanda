@@ -31,20 +31,20 @@
             ['label' => 'Mercearia', 'url' => '/categoria-produto/mercearia'],
             ['label' => 'Hortifruti', 'url' => '/categoria-produto/hortifruti'],
             ['label' => 'Padaria', 'url' => '/categoria-produto/padaria'],
-            ['label' => 'Higiene pessoal', 'url' => '/categoria-produto/higiene-pessoal'],
-            ['label' => 'Limpeza', 'url' => '/categoria-produto/limpeza'],
-            ['label' => 'Laticínios', 'url' => '/categoria-produto/laticinios'],
             ['label' => 'Açougue', 'url' => '/categoria-produto/acougue'],
+            ['label' => 'Laticínios', 'url' => '/categoria-produto/laticinios'],
             ['label' => 'Bebidas', 'url' => '/categoria-produto/bebidas'],
+            ['label' => 'Suplementos', 'url' => '/categoria-produto/suplementos'],
+            ['label' => 'Limpeza', 'url' => '/categoria-produto/limpeza'],
+            ['label' => 'Higiene pessoal', 'url' => '/categoria-produto/higiene-pessoal'],
             ['label' => 'Cosméticos', 'url' => '/categoria-produto/cosmeticos'],
             ['label' => 'Aromaterapia', 'url' => '/categoria-produto/aromaterapia'],
+            ['label' => 'Infantil', 'url' => '/categoria-produto/infantil'],
             ['label' => 'Bazar', 'url' => '/categoria-produto/bazar'],
-            ['label' => 'Infantil', 'url' => '/categoria-produto/infantil']
         ];
         ?>
 
         <header id="header">
-            <p class="text-top">🍎 Frete grátis acima de R$500,00 🍎</p>
             <div class="container">
                 <div class="content">
                     <a href="/" class="logo">
@@ -55,7 +55,7 @@
                         <?php echo do_shortcode('[fibosearch]'); ?>
                     </div>
                     <div class="links">
-                        <a href="#" class="user" aria-label="Área do Usuário">
+                        <a href="/minha-conta" class="user" aria-label="Área do Usuário">
                             <?php include get_stylesheet_directory() . '/img/icons/user.svg'; ?>
                         </a>
                         <?php echo do_shortcode('[xoo_wsc_cart]'); ?>
