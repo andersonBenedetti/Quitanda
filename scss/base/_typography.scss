@@ -132,6 +132,10 @@ $font-primary: "Fustat", serif;
   font-size: 2em;
   font-weight: 800;
   line-height: 45.44px;
+
+  @media (max-width: 768px) {
+    line-height: 1;
+  }
 }
 
 @mixin description-cat {
