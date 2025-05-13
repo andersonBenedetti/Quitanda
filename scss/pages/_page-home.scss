@@ -49,12 +49,14 @@
     padding: 20px 0;
 
     .infos-list {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: flex;
+      justify-content: center;
       gap: 50px;
       overflow: hidden;
 
       .info-item {
+        max-width: 285px;
+        min-width: 280px;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -179,7 +181,7 @@
 
     .infos-shop {
       .infos-list {
-        display: flex;
+        justify-content: flex-start;
         gap: 20px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
