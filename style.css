@@ -29,11 +29,11 @@ html {
 }
 
 body {
-  padding-top: 105px;
+  padding-top: 145px;
 }
 @media (max-width: 1024px) {
   body {
-    padding-top: 90px;
+    padding-top: 135px;
   }
 }
 
@@ -467,7 +467,7 @@ ul {
   background-color: #f7f6f4;
 }
 #footer .content {
-  padding: 50px 0 20px;
+  padding: 30px 0 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -476,15 +476,15 @@ ul {
 #footer .content .column-1 {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  text-align: center;
+  gap: 10px;
 }
 #footer .content .column-1 .logo {
-  max-width: 220px;
-  margin-bottom: 20px;
+  max-width: 135px;
+  margin-left: -12px;
 }
 #footer .content .column-1 p {
   color: #333333;
+  line-height: 1;
 }
 #footer .content .column-1 .link {
   font-size: 1em;
@@ -492,12 +492,14 @@ ul {
   line-height: 32px;
   letter-spacing: 0.5px;
   color: #4f4f4f;
+  line-height: 1;
 }
 #footer .content .column-1 .link-number {
   font-size: 1.125em;
   font-weight: 800;
   line-height: 32px;
   letter-spacing: 0.5px;
+  line-height: 1;
   color: #4f4f4f;
 }
 #footer .content nav h3 {
@@ -505,8 +507,9 @@ ul {
   font-weight: 800;
   line-height: 32px;
   letter-spacing: 0.5px;
+  line-height: 1;
   color: #4f4f4f;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 #footer .content nav ul {
   display: flex;
@@ -520,6 +523,7 @@ ul {
   font-weight: 700;
   line-height: 32px;
   letter-spacing: 0.5px;
+  line-height: 1;
   position: relative;
   overflow: hidden;
   color: #4f4f4f;
@@ -545,13 +549,14 @@ ul {
 #footer .content .infos {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 #footer .content .infos h3 {
   font-size: 1.313em;
   font-weight: 800;
   line-height: 32px;
   letter-spacing: 0.5px;
+  line-height: 1;
   color: #4f4f4f;
 }
 #footer .content .infos p {
@@ -559,16 +564,18 @@ ul {
   font-weight: 600;
   line-height: 32px;
   letter-spacing: 0.5px;
+  line-height: 1;
   color: #4f4f4f;
 }
 #footer .content .infos .certificates {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #footer .content .infos .certificates p {
   font-size: 1em;
   font-weight: 800;
   line-height: 32px;
   letter-spacing: 0.5px;
+  line-height: 1;
   margin-bottom: 10px;
 }
 #footer .content .infos .certificates > div {
@@ -578,12 +585,12 @@ ul {
   gap: 10px;
 }
 #footer .content .infos .certificates > div img {
-  height: 79px;
+  height: 50px;
   object-fit: contain;
 }
 #footer .bottom {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 10px;
 }
 #footer .bottom p {
   font-size: 0.875em;
@@ -603,6 +610,9 @@ ul {
   #footer .content .column-1 {
     align-items: center;
   }
+  #footer .content .column-1 .logo {
+    margin: 0 auto;
+  }
   #footer .content nav {
     text-align: center;
   }
@@ -618,7 +628,6 @@ ul {
   }
   #footer .bottom {
     background-color: #ffffff;
-    padding: 20px;
   }
   #footer .bottom p {
     font-size: 0.875em;
@@ -1290,7 +1299,7 @@ ul {
 
 #archive-product .intro {
   background-color: #f3f5d2;
-  padding: 100px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 #archive-product .intro .category-icon {
@@ -1390,9 +1399,6 @@ ul {
 }
 
 @media (max-width: 768px) {
-  #archive-product .intro {
-    padding: 50px;
-  }
   #archive-product .intro .category-icon {
     font-size: 40px;
   }
